@@ -46,17 +46,21 @@ public class TileManager : MonoBehaviour
         if(isPlaced)
         {
             isDragging = false;
-            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
     void CheckChild()
     {
         foreach (Transform child in transform)
         {
+            bool allinSquare = true;
             TileStick tileStick = child.GetComponent<TileStick>();
-            if (tileStick.isinSquare)
+            if (!tileStick.isinSquare)
             {
-                gameObject.SetActive(false);
+                allinSquare = false;
+            }
+            if (allinSquare)
+            {
+                gameObject.SetActive(false); 
             }
             if (tileStick != null)
             {

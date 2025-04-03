@@ -23,6 +23,10 @@ public class TileStick : MonoBehaviour
             }
         }
         HitandFit();
+        if (isinSquare)
+        {
+            gameObject.SetActive(false);
+        }
     }
     public void HitandFit()
     {
@@ -56,7 +60,12 @@ public class TileStick : MonoBehaviour
           if(gridStick != null)
           {
                 gridStick.isOccopied = true;
+                transform.position = gridStick.transform.position;
           }
+            if (!isStick)
+            {
+                transform.position = hit2D.transform.position;
+            }
         }
        
     }
